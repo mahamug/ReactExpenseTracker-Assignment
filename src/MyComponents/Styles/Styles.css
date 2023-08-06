@@ -126,6 +126,9 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   width: 60%;
   
 }
+.ExpanceCardTransactionContainer span{
+  color: #FF5F1F
+}
 .cell{
   display: flex;
   flex-direction: row;
@@ -138,6 +141,16 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   align-items: center;
   font-weight: normal;
   justify-content: space-between;
+}
+.cellButn{
+  background-color: #71797E;
+  color: white;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
 }
 .error{
   color:red

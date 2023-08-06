@@ -3,13 +3,20 @@ import "../Styles/Styles.css"
 
 export const OverViewComponent = (props) => {
   const AddTransactionView = () =>{
-        const[amount,setAmount] = useState();
-         const[desc,setDesc] = useState(); 
+        const[amount,setAmount] = useState('');
+         const[desc,setDesc] = useState(''); 
          const[type,setType] = useState("EXPENSE");
-          const[errorMessages,setErrorMessages] = useState()
+          const[errorMessages,setErrorMessages] = useState('')
        const AddTransaction = ()=>{
-            props.addTransaction({amount:Number(amount),desc,type,id: Date.now()}); 
-           } 
+        if (!amount.trim() || !desc.trim()) {
+          setErrorMessages('Please fill in both Amount and Description fields.');
+        } else {
+          props.addTransaction({ amount: Number(amount), desc, type, id: Date.now() });
+          setErrorMessages('');
+          setAmount('');
+          setDesc('');
+        }
+           };
            
         
   
@@ -47,8 +54,8 @@ export const OverViewComponent = (props) => {
       <div className='error'>{errorMessages}</div>
       <button onClick={AddTransaction}>Add Transaction</button>
     </div>
-    )
-  }
+    );
+  };
   return (
     <div className='ExpanceCardOverViewContainer'>
     <div className='BalanceBox'>Balance: ${props.income - props.expense}

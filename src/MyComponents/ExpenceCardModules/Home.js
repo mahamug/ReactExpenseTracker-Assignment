@@ -13,7 +13,12 @@ export const Home = () => {
   transactionArray.push(payload);
   updateTransactions(transactionArray)
   }
-  
+  const deleteTransaction = (id) => {
+    // Filter out the transaction with the provided id
+    const updatedTransactions = transactions.filter((transaction) => transaction.id !== id);
+    updateTransactions(updatedTransactions);
+  }; 
+
   const calculateBalance = () =>{
     let exp = 0;
     let inc = 0;
@@ -28,7 +33,7 @@ export const Home = () => {
   return (
     <div className='ExpanceCardContainer'>
       <OverViewComponent addTransaction={addTransaction} expense={expense} income={income}/>
-      <TransactionComponent transactions={transactions}/>
+      <TransactionComponent transactions={transactions} deleteTransaction={deleteTransaction}/>
     </div>
   )
 }
